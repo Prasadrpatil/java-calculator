@@ -27,3 +27,5 @@ return a+b;
 }
 
 }
+AWS_SECRET_KEY=JhG7#s9Y@eVt2u
+AWS_PUBLIC_KEY=xuL4$w6Z#rTf8s
