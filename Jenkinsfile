@@ -68,7 +68,7 @@ pipeline {
                     sonarqubeAnalysis()
                 }
             }
-        }
+        }//SAST
         
         stage('Docker File Scan'){
             steps{
