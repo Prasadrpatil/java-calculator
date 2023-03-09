@@ -62,13 +62,13 @@ pipeline {
             }
         }//snyk
         
-        // stage('SonarQube analysis') {
-        //     steps{
-        //         script{
-        //             sonarqubeAnalysis()
-        //         }
-        //     }
-        // }
+        stage('SonarQube analysis') {
+            steps{
+                script{
+                    sonarqubeAnalysis()
+                }
+            }
+        }
         
         stage('Docker File Scan'){
             steps{
