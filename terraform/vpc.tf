@@ -52,3 +52,14 @@ resource "aws_route_table_association" "devsecops" {
   subnet_id      = aws_subnet.devsecops[count.index].id
   route_table_id = aws_route_table.devsecops.id
 }
+
+
+data "aws_availability_zones" "available" {
+  state = "available"
+  filters = {
+    region-name = var.region
+  }
+}
+
+
+
