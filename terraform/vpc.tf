@@ -57,7 +57,7 @@ resource "aws_route_table_association" "devsecops" {
 data "aws_availability_zones" "available" {
   state = "available"
   filters = {
-    region-name = var.region
+    region-name = var.aws_region
   }
 }
 
