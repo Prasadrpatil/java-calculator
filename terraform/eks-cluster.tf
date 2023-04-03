@@ -64,7 +64,7 @@ resource "aws_security_group_rule" "devsecops-cluster-ingress-workstation-https"
 resource "aws_eks_cluster" "devsecops" {
   name     = var.cluster_name
   role_arn = aws_iam_role.devsecops-cluster.arn
-  version  = "1.24"
+  #version  = "1.24"
 
   vpc_config {
     security_group_ids = [aws_security_group.devsecops-cluster.id]
