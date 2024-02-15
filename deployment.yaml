@@ -1,32 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: dummy-html-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: dummy-html
   template:
     metadata:
       labels:
-        app: nginx
+        app: dummy-html
     spec:
       containers:
-      - name: nginx
-        image: prasadrpatil/java-demo:latest
+      - name: web
+        image: prasadrpatil/dummy-html-app:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8080  # Make sure this matches the port your app is listening on inside the container
+
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-service
+  name: dummy-html-service
 spec:
   selector:
-    app: nginx
+    app: dummy-html
   ports:
-  - name: http
+  - protocol: TCP
     port: 80
-    targetPort: 80
-  type: LoadBalancer
+    targetPort: 8080  # Update the target port to match the container port
+  type: NodePort
